@@ -109,6 +109,8 @@ function m.collectionLerp(aCollection : {Dictionary}, bCollection : {Dictionary}
 
 		table.insert(rColl, rPairs)
 	end
+
+	return rColl
 end
 
 -- Used for lerping a collection of objects across multiple properties
@@ -137,6 +139,8 @@ function m.collectionStaggerLerp(aCollection : {Dictionary}, bCollection : {Dict
 
 		table.insert(rColl, rPairs)
 	end
+
+	return rColl
 end
 
 do
