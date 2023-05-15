@@ -26,33 +26,6 @@ end
 m.Lerp = lerp
 m.Smearer = getSmearer
 
-local function agnostic_mapper(predicate)
-    return function(iter, obj_0, state_0)
-        if type(iter) == "table" then
-            iter, obj_0, state_0 = ipairs(iter)
-        end
-
-        local v, r;
-
-        return function(obj, ...)
-			return predicate(iter(obj, ...))
-        end, obj_0, state_0
-    end
-end
-
--- maps values, ignoring the first value returned by an iterator (assumed to be the state)
-local function mapV(predicate)
-	return agnostic_mapper(function(i, ...)
-		return i, predicate(...)
-	end)
-end
-
-local function mapNthArgs(predicate, )
-	return agnostic_mapper(function(i, ...)
-		return i, predicate(...)
-	end)
-end
-
 --[[
 	o = {
 		A = 1,
